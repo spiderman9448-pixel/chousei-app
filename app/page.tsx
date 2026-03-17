@@ -20,22 +20,19 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 使い方 */}
-        <div className="grid grid-cols-3 gap-3 text-center">
-          <div className="space-y-2">
-            <div className="text-4xl">✏️</div>
-            <p className="text-base font-medium text-foreground">
-              イベントを作成
-            </p>
-          </div>
-          <div className="space-y-2">
-            <div className="text-4xl">🔗</div>
-            <p className="text-base font-medium text-foreground">URLを共有</p>
-          </div>
-          <div className="space-y-2">
-            <div className="text-4xl">✅</div>
-            <p className="text-base font-medium text-foreground">出欠を集計</p>
-          </div>
+        {/* 使い方（ステップ表示） */}
+        <div className="flex items-center justify-center gap-2 text-secondary text-base">
+          <span className="bg-muted px-3 py-1.5 rounded-full text-sm font-medium">
+            ① 作成
+          </span>
+          <span className="text-border">→</span>
+          <span className="bg-muted px-3 py-1.5 rounded-full text-sm font-medium">
+            ② 共有
+          </span>
+          <span className="text-border">→</span>
+          <span className="bg-muted px-3 py-1.5 rounded-full text-sm font-medium">
+            ③ 集計
+          </span>
         </div>
 
         {/* CTA */}
