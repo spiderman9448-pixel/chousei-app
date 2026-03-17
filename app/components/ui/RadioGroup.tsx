@@ -35,8 +35,8 @@ export default function RadioGroup({
           <label
             key={option.value}
             className={`
-              flex items-center justify-center w-12 h-12 rounded-xl cursor-pointer
-              text-2xl font-bold transition-all duration-200 border-2
+              flex items-center justify-center w-10 h-10 rounded-lg cursor-pointer
+              text-xl font-bold transition-all duration-200 border-2
               ${
                 isSelected
                   ? `${colorClass} border-current bg-white scale-110 shadow-sm`

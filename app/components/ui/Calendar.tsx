@@ -66,15 +66,15 @@ export default function Calendar({ selectedDates, onToggleDate }: CalendarProps)
         <button
           type="button"
           onClick={prevMonth}
-          className="p-3 rounded-xl hover:bg-muted transition-colors cursor-pointer text-secondary hover:text-foreground text-xl"
+          className="p-2 rounded-lg hover:bg-muted transition-colors cursor-pointer text-secondary hover:text-foreground text-lg"
         >
           ←
         </button>
-        <span className="text-xl font-bold text-foreground">{monthLabel}</span>
+        <span className="text-lg font-bold text-foreground">{monthLabel}</span>
         <button
           type="button"
           onClick={nextMonth}
-          className="p-3 rounded-xl hover:bg-muted transition-colors cursor-pointer text-secondary hover:text-foreground text-xl"
+          className="p-2 rounded-lg hover:bg-muted transition-colors cursor-pointer text-secondary hover:text-foreground text-lg"
         >
           →
         </button>
@@ -85,7 +85,7 @@ export default function Calendar({ selectedDates, onToggleDate }: CalendarProps)
         {WEEKDAYS.map((day, i) => (
           <div
             key={day}
-            className={`text-center text-base font-semibold py-1 ${
+            className={`text-center text-sm font-semibold py-1 ${
               i === 0 ? "text-danger" : i === 6 ? "text-primary" : "text-secondary"
             }`}
           >
@@ -115,7 +115,7 @@ export default function Calendar({ selectedDates, onToggleDate }: CalendarProps)
               disabled={isPast}
               onClick={() => onToggleDate(dateStr)}
               className={`
-                aspect-square flex items-center justify-center rounded-xl text-lg font-semibold
+                aspect-square flex items-center justify-center rounded-lg text-sm font-semibold
                 transition-all duration-150 cursor-pointer
                 ${isPast
                   ? "text-secondary/30 cursor-not-allowed"
@@ -138,7 +138,7 @@ export default function Calendar({ selectedDates, onToggleDate }: CalendarProps)
       </div>
 
       {selectedDates.length > 0 && (
-        <p className="text-base text-secondary mt-4 text-center font-medium">
+        <p className="text-sm text-secondary mt-3 text-center font-medium">
           {selectedDates.length}日選択中
         </p>
       )}

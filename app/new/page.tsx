@@ -61,17 +61,17 @@ export default function NewEventPage() {
       <div className="max-w-lg mx-auto space-y-6">
         <Link
           href="/"
-          className="inline-block text-lg text-secondary hover:text-foreground transition-colors"
+          className="inline-block text-sm text-secondary hover:text-foreground transition-colors"
         >
           ← 戻る
         </Link>
 
-        <h1 className="text-3xl font-bold text-foreground">
+        <h1 className="text-xl font-bold text-foreground">
           イベントを作成する
         </h1>
 
         {error && (
-          <div className="bg-danger/10 border border-danger/20 text-danger rounded-xl px-5 py-4 text-base">
+          <div className="bg-danger/10 border border-danger/20 text-danger rounded-xl px-4 py-3 text-sm">
             {error}
           </div>
         )}
@@ -95,7 +95,7 @@ export default function NewEventPage() {
 
             {/* カレンダー */}
             <Card className="space-y-4">
-              <label className="text-base font-semibold text-foreground">
+              <label className="text-sm font-semibold text-foreground">
                 日程候補をタップで選択
               </label>
               <Calendar
@@ -107,7 +107,7 @@ export default function NewEventPage() {
             {/* 選択した日程 + 時間入力 */}
             {dateEntries.length > 0 && (
               <Card className="space-y-1">
-                <label className="text-base font-semibold text-foreground mb-2 block">
+                <label className="text-sm font-semibold text-foreground mb-2 block">
                   選択した日程（時間は任意）
                 </label>
                 <div className="space-y-3">
@@ -116,7 +116,7 @@ export default function NewEventPage() {
                       key={entry.date}
                       className="flex items-center gap-3 p-3 rounded-xl bg-muted/50"
                     >
-                      <span className="text-base font-semibold text-foreground shrink-0">
+                      <span className="text-sm font-semibold text-foreground shrink-0">
                         {formatLabel(entry.date)}
                       </span>
                       <input
@@ -125,13 +125,13 @@ export default function NewEventPage() {
                         onChange={(e) => updateTime(entry.date, e.target.value)}
                         placeholder="例: 19:00〜"
                         className="flex-1 min-w-0 px-3 py-2 rounded-lg border border-border bg-white
-                          text-base text-foreground placeholder:text-secondary/50
+                          text-sm text-foreground placeholder:text-secondary/50
                           focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                       />
                       <button
                         type="button"
                         onClick={() => removeDate(entry.date)}
-                        className="text-secondary hover:text-danger transition-colors cursor-pointer text-lg shrink-0 p-1"
+                        className="text-secondary hover:text-danger transition-colors cursor-pointer text-base shrink-0 p-1"
                       >
                         ✕
                       </button>
@@ -144,7 +144,7 @@ export default function NewEventPage() {
             <Button
               type="submit"
               size="lg"
-              className="w-full text-lg py-5"
+              className="w-full py-3.5"
               disabled={isSubmitting || dateEntries.length === 0}
             >
               {isSubmitting

@@ -73,16 +73,16 @@ export default function ResponseForm({
   return (
     <div className="space-y-5">
       {error && (
-        <div className="bg-danger/10 border border-danger/20 text-danger rounded-xl px-5 py-4 text-base">
+        <div className="bg-danger/10 border border-danger/20 text-danger rounded-xl px-4 py-3 text-sm">
           {error}
         </div>
       )}
 
       {/* 名前入力（編集モード） */}
       {isEditing && (
-        <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-5 space-y-4">
+        <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-4 space-y-3">
           <div>
-            <label className="text-base font-semibold text-foreground block mb-2">
+            <label className="text-sm font-semibold text-foreground block mb-1.5">
               あなたの名前
             </label>
             <input
@@ -91,8 +91,8 @@ export default function ResponseForm({
               onChange={(e) => setName(e.target.value)}
               placeholder="名前を入力"
               autoFocus
-              className="w-full px-4 py-3.5 rounded-xl border border-border bg-white
-                text-lg text-foreground font-medium
+              className="w-full px-4 py-3 rounded-xl border border-border bg-white
+                text-base text-foreground font-medium
                 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             />
           </div>
@@ -106,20 +106,20 @@ export default function ResponseForm({
             {/* ヘッダー: 日程 | 名前1 | 名前2 | ... | 集計 */}
             <thead>
               <tr className="bg-muted">
-                <th className="px-4 py-3 text-left text-base font-bold text-foreground sticky left-0 bg-muted min-w-[100px]">
+                <th className="px-3 py-2.5 text-left text-sm font-bold text-foreground sticky left-0 bg-muted min-w-[90px]">
                   日程
                 </th>
                 {allNames.map((member) => (
                   <th
                     key={member.id}
-                    className={`px-3 py-3 text-center text-base font-bold whitespace-nowrap min-w-[56px]
+                    className={`px-2.5 py-2.5 text-center text-sm font-bold whitespace-nowrap min-w-[48px]
                       ${member.isMe ? "text-primary bg-primary/10" : "text-foreground"}`}
                   >
                     {member.name}
                   </th>
                 ))}
                 {responses.length > 0 && (
-                  <th className="px-3 py-3 text-center text-base font-bold text-secondary min-w-[80px]">
+                  <th className="px-2.5 py-2.5 text-center text-sm font-bold text-secondary min-w-[70px]">
                     集計
                   </th>
                 )}
@@ -131,7 +131,7 @@ export default function ResponseForm({
                 return (
                   <tr key={opt.id} className="hover:bg-muted/30">
                     {/* 日程ラベル */}
-                    <td className="px-4 py-3 text-base font-semibold text-foreground sticky left-0 bg-white whitespace-nowrap">
+                    <td className="px-3 py-2.5 text-sm font-semibold text-foreground sticky left-0 bg-white whitespace-nowrap">
                       {opt.label}
                     </td>
                     {/* 各メンバーの回答 */}
@@ -154,7 +154,7 @@ export default function ResponseForm({
                       return (
                         <td
                           key={member.id}
-                          className={`px-3 py-3 text-center text-2xl font-bold ${availabilityStyle[avail] || "text-secondary"}`}
+                          className={`px-2.5 py-2.5 text-center text-xl font-bold ${availabilityStyle[avail] || "text-secondary"}`}
                         >
                           {avail}
                         </td>
@@ -162,7 +162,7 @@ export default function ResponseForm({
                     })}
                     {/* 集計 */}
                     {responses.length > 0 && (
-                      <td className="px-2 py-3 text-center">
+                      <td className="px-2 py-2.5 text-center">
                         <div className="flex flex-col items-center gap-1">
                           {s["○"] > 0 && <Badge variant="success">○{s["○"]}</Badge>}
                           {s["△"] > 0 && <Badge variant="warning">△{s["△"]}</Badge>}
@@ -180,7 +180,7 @@ export default function ResponseForm({
 
       {/* 回答がないとき */}
       {responses.length === 0 && !isEditing && (
-        <div className="text-center py-10 text-secondary text-lg">
+        <div className="text-center py-8 text-secondary text-sm">
           まだ回答がありません。<br />
           最初に回答してみましょう！
         </div>
@@ -188,8 +188,8 @@ export default function ResponseForm({
 
       {/* コメント入力（編集モード） */}
       {isEditing && (
-        <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-5">
-          <label className="text-base font-semibold text-foreground block mb-2">
+        <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-4">
+          <label className="text-sm font-semibold text-foreground block mb-1.5">
             コメント（任意）
           </label>
           <input
@@ -197,8 +197,8 @@ export default function ResponseForm({
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             placeholder="何かあれば..."
-            className="w-full px-4 py-3.5 rounded-xl border border-border bg-white
-              text-lg text-foreground
+            className="w-full px-4 py-3 rounded-xl border border-border bg-white
+              text-base text-foreground
               focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
         </div>
@@ -206,12 +206,12 @@ export default function ResponseForm({
 
       {/* コメント一覧 */}
       {!isEditing && responses.some((r) => r.comment) && (
-        <div className="rounded-xl border border-border bg-white p-5 space-y-3">
-          <p className="text-lg font-bold text-foreground">💬 コメント</p>
+        <div className="rounded-xl border border-border bg-white p-4 space-y-2">
+          <p className="text-base font-bold text-foreground">💬 コメント</p>
           {responses
             .filter((r) => r.comment)
             .map((r) => (
-              <div key={r.id} className="flex gap-3 text-base">
+              <div key={r.id} className="flex gap-2 text-sm">
                 <span className="font-semibold text-foreground shrink-0">{r.name}</span>
                 <span className="text-secondary">{r.comment}</span>
               </div>
@@ -221,7 +221,7 @@ export default function ResponseForm({
 
       {/* ボタン */}
       {!isEditing ? (
-        <Button onClick={() => setIsEditing(true)} size="lg" className="w-full text-lg py-5">
+        <Button onClick={() => setIsEditing(true)} size="lg" className="w-full py-3.5">
           + 自分の出欠を入力する
         </Button>
       ) : (
@@ -229,7 +229,7 @@ export default function ResponseForm({
           <Button
             onClick={handleSubmit}
             size="lg"
-            className="flex-1 text-lg py-5"
+            className="flex-1 py-3.5"
             disabled={isSubmitting}
           >
             {isSubmitting ? "送信中..." : "回答を送信"}
@@ -237,7 +237,7 @@ export default function ResponseForm({
           <Button
             variant="outline"
             size="lg"
-            className="text-lg py-5"
+            className="py-3.5"
             onClick={() => {
               setIsEditing(false);
               setName("");

@@ -20,7 +20,7 @@ const variantStyles: Record<Variant, string> = {
 const sizeStyles: Record<Size, string> = {
   sm: "px-3 py-1.5 text-sm",
   md: "px-5 py-2.5 text-base",
-  lg: "px-7 py-3.5 text-lg",
+  lg: "px-6 py-3 text-base",
 };
 
 export default function Button({

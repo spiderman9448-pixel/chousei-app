@@ -91,19 +91,19 @@ export default async function EventPage({ params }: Props) {
         {/* 戻るリンク */}
         <Link
           href="/"
-          className="inline-block text-lg text-secondary hover:text-foreground transition-colors"
+          className="inline-block text-sm text-secondary hover:text-foreground transition-colors"
         >
           ← 新しいイベントを作る
         </Link>
 
         {/* イベント情報 */}
         <Card className="space-y-4">
-          <div className="text-4xl">📅</div>
-          <h1 className="text-3xl font-bold text-foreground">
+          <div className="text-3xl">📅</div>
+          <h1 className="text-xl font-bold text-foreground">
             {event.title}
           </h1>
           {event.description && (
-            <p className="text-lg text-secondary whitespace-pre-wrap">
+            <p className="text-sm text-secondary whitespace-pre-wrap">
               {event.description}
             </p>
           )}
@@ -112,7 +112,7 @@ export default async function EventPage({ params }: Props) {
 
         {/* 出欠表 */}
         <div>
-          <h2 className="text-xl font-bold text-foreground mb-4">
+          <h2 className="text-lg font-bold text-foreground mb-3">
             出欠表（{responses.length}人が回答済み）
           </h2>
           <ResponseForm
